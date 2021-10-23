@@ -1,13 +1,5 @@
 version: '3'
 services:
-  mariadb:
-    image: mariadb:10.6
-    environment:
-      - MARIADB_ROOT_PASSWORD=${DOCKER_RDS_PASSWORD}
-    volumes:
-      - ./mariadb:/var/lib/mysql
-    ports:
-      - 3306:3306
   cmimc:
     build: .
     depends_on:
