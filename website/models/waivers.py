@@ -7,5 +7,9 @@ from website.models.user import User
 
 class Waiver(models.Model):
     waiver = models.FileField(null = True, blank = True)
-    user = models.OneToOneField(User, related_name = "waiver", on_delete=models.CASCADE)
-    
+    user = models.ForeignKey(User, related_name = "waiver", on_delete=models.CASCADE)
+    class Meta:
+        db_table = "waiver"
+
+    def __str__(self):
+        return "Waiver: {0}".format(self.user.name)
