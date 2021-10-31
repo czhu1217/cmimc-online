@@ -9,7 +9,13 @@ def upload(request):
     context = {}
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
+        form = Waiver(
+          waiver =  uploaded_file,
+          user = user_m
+        )
+        form.save()
         fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
+        context['url'] = fs.url(form.waiver.name)
+
     return render(request, 'upload.html', context)
+
