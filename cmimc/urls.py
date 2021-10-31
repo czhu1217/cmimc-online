@@ -32,7 +32,6 @@ urlpatterns = [
     path('change-password/done', auth_views.PasswordChangeDoneView.as_view(template_name='change_password_done.html'), name='change_password_done'),
 #    path('reset-password/', auth_views.PasswordResetView.as_view(template_name='reset_password.html'), name='reset_password'),
 
-    path('upload', views.upload, name='upload'),
 
     path('contest/<int:contest_id>/newteam', views.new_team, name='new_team'),
     path('team/<int:team_id>', views.team_info, name='team_info'),
@@ -65,4 +64,4 @@ urlpatterns = [
     path('download/subs/<int:exam_id>', views.download_subs, name='download_subs'),
 
     path("upload", views.upload, name="upload")
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
