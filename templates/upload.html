@@ -10,8 +10,8 @@
     <button type="submit">Upload file</button>
   </form>
   <h2>Uploaded Document</h2>
-  {% if url %}
-    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% if uploaded_file %}
+    <p>Uploaded file: <a href="{{ uploaded_file }}">{{ uploaded_file }}</a></p>
   {%else%}
     <p>No file uploaded.</p>
   {% endif %}

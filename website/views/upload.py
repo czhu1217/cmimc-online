@@ -8,7 +8,6 @@ from website.models import User, Mathlete, Waiver
 @login_required
 def upload(request):
     user_m = request.user
-    context = {}
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
         waiver = Waiver(
@@ -16,5 +15,6 @@ def upload(request):
             user = user_m
         )
         waiver.save()
-        
+    try: context = {"uploaded_file": uploaded_file}
+    except: context = {}
     return render(request, 'upload.html', context)
