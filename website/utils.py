@@ -1,6 +1,8 @@
 from background_task import background
 from django.utils.timezone import localtime, now
 import math
+import os
+import uuid
 
 # Lets you easily log things when in production, by calling
 # log(asdf='hello world') to display {'asdf': 'hello world'}
@@ -437,3 +439,8 @@ def calc_sweepstakes(contest):
         ss.save()
     log(finished='calc_sweepstakes')
 
+def get_file_path(instance, filename):
+  ext = filename.split('.')[-1]
+  filename = "%s.%s" % (uuid.uuid4(), ext)
+  return os.path.join('waiver/', filename)
+ 
